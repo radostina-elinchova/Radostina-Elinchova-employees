@@ -78,7 +78,7 @@ function FileUploader() {
                 header: true,
                 complete: (result) => {
                     const data = result.data;
-                    const updatedData = {}
+                    const updatedData = {};
                     data.forEach((entry) => {
                         const {EmpID: empID, ProjectID: projectID, DateFrom: dateFrom, DateTo: dateTo} = entry
                         if (empID) {
@@ -91,13 +91,12 @@ function FileUploader() {
                                 dateTo
                             })
                         }
-                    })
-
+                    });
 
                     setDataCSV(updatedData);
-                    setIsFileLoaded(true)
+                    setIsFileLoaded(true);
                     const longetOverlapObj = findLongestCommonProject(updatedData);
-                    const displayObj = []
+                    const displayObj = [];
                     for (let i = 0; i < longetOverlapObj['commonProjects'].length; i++) {
                         displayObj.push({
                             'project': longetOverlapObj['commonProjects'][i],
