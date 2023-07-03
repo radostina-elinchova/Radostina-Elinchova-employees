@@ -12,8 +12,9 @@ function FileUploader() {
         let overlapDays = 0
         let fStart = moment(project1.dateFrom)
         let sStart = moment(project2.dateFrom);
-        let fEnd = moment(project1.dateTo) || moment();
-        let sEnd = moment(project2.dateTo) || moment();
+
+        let fEnd = project1.dateTo !== 'NULL' ? moment(project1.dateTo) : moment();
+        let sEnd = project2.dateTo !== 'NULL' ? moment(project2.dateTo) : moment();
 
         const startOverlap = moment.max(fStart, sStart);
         const endOverlap = moment.min(fEnd, sEnd);
@@ -21,7 +22,7 @@ function FileUploader() {
         if (startOverlap.isBefore(endOverlap)) {
             overlapDays = endOverlap.diff(startOverlap, 'days') ;
         }
-
+        console.log(overlapDays)
         return overlapDays;
     }
 
