@@ -57,7 +57,6 @@ function FileUploader() {
                                 break;
                             }
                         }
-                        console.log("common project", commonProjectsForPair)
                     }
                 }
 
@@ -79,7 +78,6 @@ function FileUploader() {
                 header: true,
                 complete: (result) => {
                     const data = result.data;
-                    console.log("data",data)
                     const updatedData = {}
                     data.forEach((entry) => {
                         const {EmpID: empID, ProjectID: projectID, DateFrom: dateFrom, DateTo: dateTo} = entry
