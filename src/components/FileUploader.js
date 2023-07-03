@@ -19,10 +19,10 @@ function FileUploader() {
         const startOverlap = moment.max(fStart, sStart);
         const endOverlap = moment.min(fEnd, sEnd);
 
-        if (startOverlap.isBefore(endOverlap)) {
-            overlapDays = endOverlap.diff(startOverlap, 'days') ;
+        if (startOverlap.isBefore(endOverlap) || startOverlap.isSame(endOverlap)) {
+            overlapDays = endOverlap.diff(startOverlap, 'days') + 1;
         }
-        console.log(overlapDays)
+
         return overlapDays;
     }
 
