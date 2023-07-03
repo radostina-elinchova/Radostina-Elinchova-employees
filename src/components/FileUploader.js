@@ -117,7 +117,9 @@ function FileUploader() {
     return (
             <div>
                 <input type="file" onChange={handleFileChange} accept=".csv" />
-                {isFileLoaded && longestOverlaps && <Table dataTable={longestOverlaps} /> }
+                {isFileLoaded && longestOverlaps.length === 0 && <div>There are no pairs with common projects</div>}
+                {isFileLoaded && longestOverlaps.length !== 0 && <Table dataTable={longestOverlaps} /> }
+
             </div>
      )
 }
